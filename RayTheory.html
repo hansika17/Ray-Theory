@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+
+#overlay {
+    z-index:100;
+}
+
+.image { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+h2 { 
+   position: absolute; 
+   top: 200px; 
+   left: 0; 
+   width: 100%; 
+   color: #00ff00;
+   text-align: center;
+}
+
+.mySlide {display:none;}
+
+
+footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+</style>
+<body>
+
+
+<div  width='100%'>
+  <div class="mySlide w3-container w3-grey">
+  <img src='logo.png' align='left' width='100px'>
+  <center>
+   <h1><b>Did You Know?</b></h1>
+    <h1><i>We plan to sell trips to the moon in the 2020s</i></h1>
+   <h1><b>Did You Know?</b></h1>
+    <h1><i>We plan to sell trips to the moon in the 2020s</i></h1>
+    <h1><b>Did You Know?</b></h1>
+    <h1><i>We plan to sell trips to the moon in the 2020s</i></h1>
+	
+<div id='overlay'>
+<a href="#down"><img src="10897-200.png" width='100px' height='100px'></img></a><br>Down Arrow
+<div>
+</center>
+  </div>
+
+  
+
+ 
+
+  
+</div>
+
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlide");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 2000); 
+}
+</script>
+
+
+
+<br><br><br>
+
+<br><br><br>
+<br><br><br>
+
+
+
+<style>
+.mySlides {display:none}
+.demo {cursor:pointer}
+</style>
+
+
+
+<a name='down'>
+<div class="w3-content" style="max-width:700px">
+  <a class="mySlides" href='newFile.php?name=sachin'>
+ <div class="image"> <img src="mean-stack-master - Copy.jpg" style="width:100%"/>
+	  <h2>google</h2></div>
+	  </a>
+	  <a class="mySlides" href='http://www.yahoo.com'>
+ <div class="image"> <img  src="Data-Scientist - Copy.jpg" style="width:100%"/>
+    <h2>yahoo</h2></div>
+	  </a>
+	  <a class="mySlides" href='http://www.fb.cm'>
+  <div class="image"><img src="Digital-marketing-head - Copy.jpg" style="width:100%"/>
+		<h2>fb</h2></div>
+	  </a>
+	  <a class="mySlides" href='http://www.youtube.com'>
+ <div class="image"> <img  src="Data-Scientist - Copy.jpg" style="width:100%"/>
+<h2>youtube 	</h2></div>
+	  </a>
+	  
+  
+  
+   
+
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s3">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="mean-stack-master - Copy.jpg" style="width:70%" onclick="currentDiv(1)">
+	
+    </div>
+    <div class="w3-col s3">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="Data-Scientist - Copy.jpg" style="width:70%" onclick="currentDiv(2)">
+	  
+	</div>
+    <div class="w3-col s3">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="Digital-marketing-head - Copy.jpg" style="width:70%" onclick="currentDiv(3)">
+	   
+	</div>
+	 <div class="w3-col s3">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="Data-Scientist - Copy.jpg" style="width:70%" onclick="currentDiv(4)">
+	   
+    </div>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+}
+
+document.getElementsByClassName("mySlides");
+</script>
+<footer>
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
+
+
+<p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p></footer>
+</body>
+</html>
+
