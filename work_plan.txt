@@ -1,0 +1,8 @@
+1. images not getting viewed of courses in php extenssion on home page chech with that assure it is,
+	if it is please share with me project again .
+2. design inquiry form extend footer for that if needed.
+3. raytheroy text below logo
+4. content of header will be given by freelancer
+5. design a form to fill cutomer details for making payment
+6. complete discription of courses page
+7. wait for the API integration(payment gateway is not decided)
