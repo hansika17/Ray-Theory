@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 		
 		echo "<body background='wave.svg'>";
 		echo "<br><br><br><br><br><br><img align ='left' src=\"".htmlspecialchars($_GET["courseName"]).".jpg\" width=\"550px\" height =\"400px\">";
-        echo "<br><br><br><br><br><br><div  align='right'><br>";
+        echo "<br><br><div  align='right'><br>";
         echo "<br>"."<font size='4'><b>Course Desciption:</b></font> " . $row["rt_contentdesc"]. "<br>";
         echo "<br>"."<font size='4'><b>Charges:</b></font> " . $row["rt_price"]. "<br>";
         echo "<br>"."<font size='4'><b>Batch Mode:</b></font> " . $row["rt_batchmode"]. "<br>";

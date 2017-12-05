@@ -4,8 +4,7 @@ Pending on Sachin
 	if it is please share with me project again .  -- Done
 2. design inquiry form extend footer for that if needed. --Done
 3. raytheroy text below logo --
-
-5. design a form to fill cutomer details for making payment
+4. design a form to fill cutomer details for making payment
 
 
 
