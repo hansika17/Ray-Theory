@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2017 at 06:16 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Generation Time: Dec 05, 2017 at 06:29 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,81 +25,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rt_courses`
+-- Table structure for table `rt_coursedescription`
 --
 
-CREATE TABLE IF NOT EXISTS `rt_courses` (
-  `primary_key` varchar(50) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `price` int(6) NOT NULL,
-  `batch_mode` varchar(50) NOT NULL,
-  `new_batch_time` datetime NOT NULL
+CREATE TABLE `rt_coursedescription` (
+  `primarykey` varchar(255) NOT NULL,
+  `rt_contentdesc` varchar(255) NOT NULL,
+  `rt_price` varchar(255) NOT NULL,
+  `rt_batchmode` varchar(255) NOT NULL,
+  `rt_newbatchtime` varchar(255) NOT NULL,
+  `coursename` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `rt_enquiry`
+-- Dumping data for table `rt_coursedescription`
 --
 
-CREATE TABLE IF NOT EXISTS `rt_enquiry` (
-  `id` int(11) NOT NULL,
-  `email_id` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `mobile_no` varchar(20) NOT NULL,
-  `enquiry_msg` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rt_payment`
---
-
-CREATE TABLE IF NOT EXISTS `rt_payment` (
-  `id` int(6) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `email_id` varchar(50) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `contact_number` varchar(20) NOT NULL,
-  `merchant_id` varchar(10) NOT NULL,
-  `amount` int(20) NOT NULL,
-  `pay_time` datetime NOT NULL,
-  `customer_ip` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `rt_coursedescription` (`primarykey`, `rt_contentdesc`, `rt_price`, `rt_batchmode`, `rt_newbatchtime`, `coursename`) VALUES
+('adsfasd', 'asdfasd', 'adsfasd', 'adsfasdf', 'asdfasd', 'secondCourse'),
+('asdf', 'adsfas', 'asdfasdf', 'asdfasdf', 'asdfas', 'firstCourse'),
+('asdfas', 'sadfsa', 'asdfasdf', 'adsfasdf', 'asdffasdf', 'thirdCourse'),
+('asdfasf', 'asdfasdfsadf', 'asdfasdfsadf', 'adsfasdfasdf', 'adsfsadfasdf', 'fourthCourse');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `rt_enquiry`
+-- Indexes for table `rt_coursedescription`
 --
-ALTER TABLE `rt_enquiry`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `rt_coursedescription`
+  ADD PRIMARY KEY (`primarykey`);
+COMMIT;
 
---
--- Indexes for table `rt_payment`
---
-ALTER TABLE `rt_payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `name` (`name`),
-  ADD KEY `name_2` (`name`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `rt_enquiry`
---
-ALTER TABLE `rt_enquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `rt_payment`
---
-ALTER TABLE `rt_payment`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
