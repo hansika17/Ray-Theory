@@ -178,37 +178,39 @@ document.getElementsByClassName("mySlides");
 <center>
   <p>Posted by: Hege Refsnes</p>
   <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
-  <div ng-controller="formCtrl">
+  <div ng-controller="formCtrl" align='right'>
 <form method="post" name="myForm">
 <div>
 <label>Name:</label>
-<input style="color:red" type="text" name="name" ng-model="name" required>
-<span style="color:red" ng-show="myForm.name.$touched && myForm.name.$invalid">Name is required.</span>
+<input style=" width:350px;" style="color:red" type="text" name="name" ng-model="name" required>
+<br><span style="color:red" ng-show="myForm.name.$touched && myForm.name.$invalid">Name is required.</span>
 </div>
 <div>
 <label>Email ID:</label>
-<input type="email" name="email_id" ng-model="email_id">
-<span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
+<input style=" width:350px;" type="email" name="email_id" ng-model="email_id">
+<br><span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
 </div><div>
 <label>Contact Number:</label>
-<input  type="text" name="mobile_no" ng-model="mobile_no" required my-directive>
-<span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">contact number must be of 10 digit.</span>
+<input style=" width:350px;" type="text" name="mobile_no" ng-model="mobile_no" required my-directive>
+<br><span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">contact number must be of 10 digit.</span>
 </div>
 <div>
 <label>City:</label>
-<input type="text" name="city" ng-model="city" required>
-<span style="color:red" ng-show="myForm.city.$touched && myForm.city.$invalid">City is required.</span>
+<input style=" width:350px;" type="text" name="city" ng-model="city" required>
+<br><span style="color:red" ng-show="myForm.city.$touched && myForm.city.$invalid">City is required.</span>
 </div>
 <div>
 <label>Message:</label>
-<input type="text" name="enquiry_msg" ng-model="enquiry_msg" required>
-<span style="color:red" ng-show="myForm.enquiry_msg.$touched && myForm.enquiry_msg.$invalid">Message is required.</span>
+<textarea style=" width:350px; overflow-y: scroll; height:200px;" type="text" name="enquiry_msg" ng-model="enquiry_msg" required></textarea>
+<br><span style="color:red" ng-show="myForm.enquiry_msg.$touched && myForm.enquiry_msg.$invalid">Message is required.</span>
 </div>
 <br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
 </form>
+
 </div>
 <p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p>
+
 <center></footer>
 
 <script>
