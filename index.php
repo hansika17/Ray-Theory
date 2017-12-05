@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
 <html>
-<title>RayTheory</title>
+<head>
+<title>W3.CSS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 
@@ -37,8 +38,10 @@ footer {
 }
 
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+</head>
 <body ng-app="myApp">
+
+
 
 
 <div  width='100%'>
@@ -123,19 +126,19 @@ function carousel() {
 
   <div class="w3-row-padding w3-section">
     <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="mean-stack-master - Copy.jpg" style="width:70%" onclick="currentDiv(1)">firstCourse
+      <img class="demo w3-opacity w3-hover-opacity-off" src="firstCourse.jpg" style="width:70%" onclick="currentDiv(1)">firstCourse
 	
     </div>
     <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="Data-Scientist - Copy.jpg" style="width:70%" onclick="currentDiv(2)">secondCourse
+      <img class="demo w3-opacity w3-hover-opacity-off" src="secondCourse.jpg" style="width:70%" onclick="currentDiv(2)">secondCourse
 	  
 	</div>
     <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="Digital-marketing-head - Copy.jpg" style="width:70%" onclick="currentDiv(3)">thirdCourse
+      <img class="demo w3-opacity w3-hover-opacity-off" src="thirdCourse.jpg" style="width:70%" onclick="currentDiv(3)">thirdCourse
 	   
 	</div>
 	 <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="Data-Scientist - Copy.jpg" style="width:70%" onclick="currentDiv(4)">fourthCourse
+      <img class="demo w3-opacity w3-hover-opacity-off" src="fourthCourse.jpg" style="width:70%" onclick="currentDiv(4)">fourthCourse
 	   
     </div>
   </div>
@@ -172,6 +175,7 @@ function showDivs(n) {
 document.getElementsByClassName("mySlides");
 </script>
 <footer>
+<center>
   <p>Posted by: Hege Refsnes</p>
   <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
   <div ng-controller="formCtrl">
@@ -200,10 +204,12 @@ document.getElementsByClassName("mySlides");
 <input type="text" name="enquiry_msg" ng-model="enquiry_msg" required>
 <span style="color:red" ng-show="myForm.enquiry_msg.$touched && myForm.enquiry_msg.$invalid">Message is required.</span>
 </div>
+<br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
 </form>
 </div>
-<p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p></footer>
+<p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p>
+<center></footer>
 
 <script>
 var app = angular.module('myApp',['ngRoute']);
