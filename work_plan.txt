@@ -6,3 +6,6 @@
 5. design a form to fill cutomer details for making payment
 6. complete discription of courses page
 7. wait for the API integration(payment gateway is not decided)
+
+
+test commit
