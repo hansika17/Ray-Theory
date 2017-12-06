@@ -6,17 +6,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-
-
 #overlay {
     z-index:100;
 }
-
 .image { 
    position: relative; 
    width: 100%; /* for IE 6 */
 }
-
 h2 { 
    position: absolute; 
    top: 200px; 
@@ -25,10 +21,7 @@ h2 {
    color: orange;
    text-align: center;
 }
-
 .mySlide {display:none;}
-
-
 footer {
     padding: 1em;
     color: white;
@@ -36,7 +29,6 @@ footer {
     clear: left;
     text-align: center;
 }
-
 </style>
 </head>
 <body ng-app="myApp">
@@ -71,7 +63,6 @@ footer {
 <script>
 var slideIndex = 0;
 carousel();
-
 function carousel() {
     var i;
     var x = document.getElementsByClassName("mySlide");
@@ -147,15 +138,12 @@ function carousel() {
 <script>
 var slideIndex = 1;
 showDivs(slideIndex);
-
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
-
 function currentDiv(n) {
   showDivs(slideIndex = n);
 }
-
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -171,7 +159,6 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " w3-opacity-off";
 }
-
 document.getElementsByClassName("mySlides");
 </script>
 <footer>
@@ -180,6 +167,7 @@ document.getElementsByClassName("mySlides");
   <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
   <div ng-controller="formCtrl" align='right'>
 <form method="post" name="myForm">
+
 <div>
 <label>Name:</label>
 <input style=" width:350px;" style="color:red" type="text" name="name" ng-model="name" required>
@@ -188,11 +176,16 @@ document.getElementsByClassName("mySlides");
 <div>
 <label>Email ID:</label>
 <input style=" width:350px;" type="email" name="email_id" ng-model="email_id">
-<br><span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
+<br><span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is required.</span>
+<span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
 </div><div>
 <label>Contact Number:</label>
-<input style=" width:350px;" type="text" name="mobile_no" ng-model="mobile_no" required my-directive>
-<br><span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">contact number must be of 10 digit.</span>
+<input style=" width:350px;" type="text" name="mobile_no" ng-model="mobile_no" ng-model="mobile_no" ng-minlength="10" 
+                   ng-maxlength="10"  required>
+<br><span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">Contact is required.</span>
+ <span style="color:red" ng-show="((myForm.mobile_no.$error.minlength ||
+                           myForm.mobile_no.$error.maxlength) && 
+                           myForm.mobile_no.$dirty)">Please enter a 10 digit number</span>
 </div>
 <div>
 <label>City:</label>
@@ -206,6 +199,7 @@ document.getElementsByClassName("mySlides");
 </div>
 <br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
+<h4>{{result}}</h4>
 </form>
 
 </div>
@@ -236,26 +230,21 @@ app.directive('myDirective', function() {
 var app = angular.module('myApp',[]);
 app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
         $scope.url = 'enquiry_save.php';
-
         $scope.formsubmit = function(isValid) {
-
-
             if (isValid) {
               
-
                 $http.post($scope.url, {"name": $scope.name, "email_id": $scope.email_id, "mobile_no": $scope.mobile_no, "city": $scope.city,
 				"enquiry_msg": $scope.enquiry_msg})
                         .then(function (data, status) {
                             console.log(data);
                             $scope.status = status;
                             $scope.data = data;
-                            $scope.result = data; 
+                            $scope.result = data.data; 
                         })
             }else{
                 
                   alert('Form is not valid');
             }
-
         };
 }]);
 </script>
@@ -263,4 +252,3 @@ app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
 
 
 </html>
-
