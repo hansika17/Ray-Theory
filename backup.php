@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <style>
 
 
@@ -33,12 +34,15 @@ $('.thumb').hover(function(){
 });
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -85,55 +89,86 @@ $('.thumb').hover(function(){
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>My Portfolio</h1>      
-    <p>Some text that represents "Me"...</p>
+    <h1>Demo Text</h1>      
+    <p>Some More Demo Text</p>
   </div>
 </div>
   
-  
-  <div>
 <div class="container-fluid bg-3 text-center">    
-  <h3>Some of my Work</h3><br>
-</div>
-<div class=" row">
-  <div class="col-md-9 ">
-    <div class="col-sm-6 col-md-6 thumb">
+  <h3>Demo Text</h3><br>
+  <div class="row">
+    <div class="col-sm-3 thumb">
       
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	  <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
 	  <p>Some text..</p>
     </div>
-    <div class="col-sm-6 col-md-6 thumb">
+    <div class="col-sm-3 thumb"> 
       
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
 	  <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	    <div class="text">Demo Short Description that will overlay over the picture</div>
 	  <p>Some text..</p>
     </div>
-	  <div class="col-sm-6 col-md-6 thumb">
+    <div class="col-sm-3 thumb">
       
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	  <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>  <div class="col-sm-6 col-md-6 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	  <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>  <div class="col-sm-6 col-md-6 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	  <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
 	  <p>Some text..</p>
     </div>
+  </div>
+</div><br>
 
-</div>
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+  </div>
+</div><br><br>
 
-  
-  <div class=" col-md-3">
 
-       <div ng-controller="formCtrl" align='right'>
+
+
+
+
+
+
+
+
+
+<a name='contact'/>
+<footer>
+<center>
+  <div ng-controller="formCtrl" align='right'>
 <form method="post" name="myForm">
-<a name ='contact'>
+
 <div>
 <label>Name:</label>
 <input style=" width:350px;" style="color:red" type="text" name="name" ng-model="name" required>
@@ -169,69 +204,11 @@ $('.thumb').hover(function(){
 </form>
 
 </div>
-
-    </div>
-</div>
-<br><br>
-
-
-
-
-
-
-
-
-
-
-
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off";
-}
-document.getElementsByClassName("mySlides");
-</script>
-<br/><br/><br/>
-
-<hr/>
-
-
-
-
-
-
-
-<footer>
-<center>
- 
 <p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p>
 
-<center>
-</footer>
+<center></footer>
 
 <script>
-
-
-
 var app = angular.module('myApp',['ngRoute']);
 app.directive('myDirective', function() {
     return {
