@@ -1,185 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>W3.CSS</title>
+
+<style>
+
+
+.thumb {
+
+}
+.text, .text-js {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    background: #999;
+    background: rbga(	,0.3);
+    text-align: center
+}
+.thumb:hover .text {
+    display: block
+}
+
+
+</style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+$('.text').hide().removeClass('text').addClass('text-js');
+
+$('.thumb').hover(function(){
+    $(this).find('.text-js').fadeToggle();
+});
+
+</script>
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script> 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-
-
-#overlay {
-    z-index:100;
-}
-
-.image { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
-}
-
-h2 { 
-   position: absolute; 
-   top: 200px; 
-   left: 0; 
-   width: 100%; 
-   color: orange;
-   text-align: center;
-}
-
-.mySlide {display:none;}
-
-
-footer {
-    padding: 1em;
-    color: white;
-    background-color: black;
-    clear: left;
-    text-align: center;
-}
-
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
 </head>
+
+
+
+
 <body ng-app="myApp">
 
+<nav class="navbar navbar-inverse">
 
 
-
-<div  width='100%'>
-  <div class="mySlide w3-container w3-grey">
-  <img src='logo.png' align='left' width='100px'>
-  <center>
-   <h1><b>Demo Content</b></h1>
-    <h1><i>Another Demo Content with more content..>>>......>>></i></h1>
-   <h1><b>Demo Content</b></h1>
-    <h1><i>Another Demo Content with more content..>>>......>>></i></h1>
-    <h1><b>Demo Content</b></h1>
-    <h1><i>Another Demo Content with more content..>>>......>>></i></h1>
-	<br><br><br>	
-<div id='overlay'>
-<a href="#down"><img src="scroll.gif"  height='100px'></img></a><br>
-<div>
-</center>
-  </div>
-
-  
-
- 
-
-  
-</div>
-
-<script>
-var slideIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlide");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > x.length) {slideIndex = 1} 
-    x[slideIndex-1].style.display = "block"; 
-    setTimeout(carousel, 2000); 
-}
-</script>
-
-
-
-<br><br><br>
-
-<br><br><br>
-<br><br><br>
-
-
-
-<style>
-.mySlides {display:none}
-.demo {cursor:pointer}
-</style>
-
-
-
-<a name='down'>
-<div class="w3-content" style="max-width:700px">
-  <a class="mySlides" href='newFile.php?courseName=firstCourse'>
- <div class="image"> <img src="firstCourse.jpg" style="width:100%"/>
-	  <h2>firstCourse:Short Desciption</h2></div>
-	  </a>
-	  <a class="mySlides" href='newFile.php?courseName=secondCourse'>
- <div class="image"> <img  src="secondCourse.jpg" style="width:100%"/>
-    <h2>secondCourse:Short Desciption</h2></div>
-	  </a>
-	  <a class="mySlides" href='newFile.php?courseName=thirdCourse'>
-  <div class="image"><img src="thirdCourse.jpg" style="width:100%"/>
-		<h2>thirdCourse:Short Desciption</h2></div>
-	  </a>
-	  <a class="mySlides" href='newFile.php?courseName=fourthCourse'>
- <div class="image"> <img  src="fourthCourse.jpg" style="width:100%"/>
-<h2>fourthCourse:Short Desciption 	</h2></div>
-	  </a>
-	  
-  
-  
-   
-
-  <div class="w3-row-padding w3-section">
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="firstCourse.jpg" style="width:70%" onclick="currentDiv(1)">firstCourse
-	
+<div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+       <a class="navbar-brand" href="#"><img src='logo.png' align='left' width='50px'></img></a>
     </div>
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="secondCourse.jpg" style="width:70%" onclick="currentDiv(2)">secondCourse
-	  
-	</div>
-    <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="thirdCourse.jpg" style="width:70%" onclick="currentDiv(3)">thirdCourse
-	   
-	</div>
-	 <div class="w3-col s3">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="fourthCourse.jpg" style="width:70%" onclick="currentDiv(4)">fourthCourse
-	   
+    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#contact">Contact</a></li>
+      </ul>
+      
     </div>
   </div>
+     
+
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Demo Text</h1>      
+    <p>Some More Demo Text</p>
+	<a href="#contact">
+	<img align='center' src="scroll.gif" z-index="999999" width='150px'></img>
+	</a>
+	</div>
 </div>
+  
+<div class="container-fluid bg-3 text-center">    
+  <h3>Demo Text</h3><br>
+  <div class="row">
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	  <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	    <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+  </div>
+</div><br>
 
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+  </div>
+</div><br><br>
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
 
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
-  }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " w3-opacity-off";
-}
 
-document.getElementsByClassName("mySlides");
-</script>
+
+
+
+
+
+
+
+<a name='contact'/>
 <footer>
 <center>
-  <p>Posted by: Hege Refsnes</p>
-  <p>Contact information: <a href="mailto:someone@example.com">someone@example.com</a>.</p>
   <div ng-controller="formCtrl" align='right'>
 <form method="post" name="myForm">
+
 <div>
 <label>Name:</label>
 <input style=" width:350px;" style="color:red" type="text" name="name" ng-model="name" required>
@@ -188,11 +180,16 @@ document.getElementsByClassName("mySlides");
 <div>
 <label>Email ID:</label>
 <input style=" width:350px;" type="email" name="email_id" ng-model="email_id">
-<br><span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
+<br><span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is required.</span>
+<span style="color:red" ng-show="myForm.email_id.$touched && myForm.email_id.$invalid">Email is invalid</span>
 </div><div>
 <label>Contact Number:</label>
-<input style=" width:350px;" type="text" name="mobile_no" ng-model="mobile_no" required my-directive>
-<br><span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">contact number must be of 10 digit.</span>
+<input style=" width:350px;" 	type="number" name="mobile_no" ng-model="mobile_no" ng-model="mobile_no" ng-minlength="10" 
+                   ng-maxlength="10"  required>
+<br><span style="color:red" ng-show="myForm.mobile_no.$touched && myForm.mobile_no.$invalid">Contact is required.</span>
+ <span style="color:red" ng-show="((myForm.mobile_no.$error.minlength ||
+                           myForm.mobile_no.$error.maxlength) && 
+                           myForm.mobile_no.$dirty)">Please enter a 10 digit number</span>
 </div>
 <div>
 <label>City:</label>
@@ -201,11 +198,12 @@ document.getElementsByClassName("mySlides");
 </div>
 <div>
 <label>Message:</label>
-<textarea style=" width:350px; overflow-y: scroll; height:200px;" type="text" name="enquiry_msg" ng-model="enquiry_msg" required></textarea>
+<textarea placeholder="" style=" width:350px; overflow-y: scroll; height:200px;" type="text" name="enquiry_msg" ng-model="enquiry_msg" required></textarea>
 <br><span style="color:red" ng-show="myForm.enquiry_msg.$touched && myForm.enquiry_msg.$invalid">Message is required.</span>
 </div>
 <br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
+<h4>{{result}}</h4>
 </form>
 
 </div>
@@ -213,49 +211,26 @@ document.getElementsByClassName("mySlides");
 
 <center></footer>
 
-<script>
-var app = angular.module('myApp',['ngRoute']);
-app.directive('myDirective', function() {
-    return {
-        require: 'ngModel',
-        link: function(scope, element, attr, mCtrl) {
-            function myValidation(value) {
-                if (value.length<10 || value.length>10  ) {
-                    mCtrl.$setValidity('number', true);
-                } else {
-                    mCtrl.$setValidity('number', false);
-                }
-                return value;
-            }
-            mCtrl.$parsers.push(myValidation);
-        }
-    };
-});
-</script>
+
 <script>
 var app = angular.module('myApp',[]);
 app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
         $scope.url = 'enquiry_save.php';
-
         $scope.formsubmit = function(isValid) {
-
-
             if (isValid) {
               
-
                 $http.post($scope.url, {"name": $scope.name, "email_id": $scope.email_id, "mobile_no": $scope.mobile_no, "city": $scope.city,
 				"enquiry_msg": $scope.enquiry_msg})
                         .then(function (data, status) {
                             console.log(data);
                             $scope.status = status;
                             $scope.data = data;
-                            $scope.result = data; 
+                            $scope.result = data.data; 
                         })
             }else{
                 
                   alert('Form is not valid');
             }
-
         };
 }]);
 </script>
@@ -263,4 +238,3 @@ app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {
 
 
 </html>
-
