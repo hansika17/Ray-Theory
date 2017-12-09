@@ -1,29 +1,37 @@
 <?php
 $conn=new mysqli('localhost','root','','raytheory');
 $post_date = file_get_contents("php://input");
-$data = json_decode($post_date);
-
-if(!empty($post_date))
+$data=json_decode($post_date);
+if(!empty($data))
 {
-	$name=$_POST['name'];
-	$email_id=$_POST['email_id'];
-	$mobile_no=$_POST['mobile_no'];
-	$city=$_POST['city'];
-	$enquiry_msg=$_POST['enquiry_msg'];
-	$error=0;
-	if(!empty($name) && !empty($email_id) && !empty($mobile_no) && !empty($city) && !empty($enquiry_msg))
+$enquiry_data=array();
+$msg="Hi raytheory, \nYou have recieved an enquiry. \nPlease find the details below:";
+$headers = "From: webmaster@example.com" . "\r\n" .
+"CC: somebodyelse@example.com";
+foreach ($data as $key => $value) 
+{
+    $enquiry_data[$key] = $value;
+	$msg .= "\n".$key.":".$value;
+}
+$msg = wordwrap($msg,70);
+//mail("someone@example.com","RayTheory Enquiry",$msg,$headers);
+if(!empty($enquiry_data))
+{
+	
+	$sql="INSERT INTO rt_enquiry(name,email_id, city, mobile_no, enquiry_msg)
+		values('".$enquiry_data['name']."','".$enquiry_data['email_id']."','".$enquiry_data['city']."','".$enquiry_data['mobile_no']."',
+		'".$enquiry_data['enquiry_msg']."')";
+	$saved=mysqli_query($conn,$sql);
+			
+	if(!empty($saved))
 	{
-		$sql="INSERT INTO rt_enquiry(email_id, city, mobile_no, enquiry_msg) values('$email_id','$city','$mobile_no','$enquiry_msg')";
-		$saved=mysqli_query($conn,$sql);
-	}
-	if($saved)
-	{
-		$message="enquiry is saved"; 
+		echo $message="enquiry is saved"; 
 	}
 	else
 	{
-		$message="enquiry is not saved please try again later";
+		echo $message="enquiry is not saved please try again later";
 	}
+}
 }
 ?>
 
