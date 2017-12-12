@@ -1,5 +1,5 @@
 <?php
-$conn=new mysqli('localhost','root','','raytheory');
+$conn= new mysqli('182.50.133.89','rtl_appuser','Rtlearning@appuser1','hemantray_rtlearning');
 $post_date = file_get_contents("php://input");
 $data=json_decode($post_date);
 if(!empty($data))
