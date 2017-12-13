@@ -122,7 +122,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM `rt_coursedescription` where coursename='".htmlspecialchars($_GET["courseName"])."';";
+$sql = "SELECT * FROM `rt_coursedescription` where primarykey='".htmlspecialchars($_GET["primarykey"])."';";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -130,8 +130,8 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 		
 		echo "<body ><div class='row'>";
-		echo "<img  src='".htmlspecialchars($_GET["courseName"]).".jpg' width='100%' height ='60px'><br><br><br><br>";
-		echo "<div class='col-md-12'><font size='18'  align='left'>".htmlspecialchars($_GET["courseName"])."</font> </div>";
+		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='60px'><br><br><br><br>";
+		echo "<div class='col-md-12'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
 		echo "<br><br><br><br><br><br>";
 		echo "<div class='col-md-9' style='border-style: solid; border-width: thin;'>";
 		echo "<div class='col-md-4'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
