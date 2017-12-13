@@ -1,11 +1,38 @@
 <head>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+ <style>
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc; 
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+}
+</style>
+
+
  <style>
 *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 90%;
+    width: 400;
     padding: 12px 20px;
     margin: 8px 26px;
     display: inline-block;
@@ -22,7 +49,7 @@ button {
     margin: 8px 26px;
     border: none;
     cursor: pointer;
-    width: 90%;
+    width: 250;
 	font-size:20px;
 }
 button:hover {
@@ -102,7 +129,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 		
-		echo "<body background='wave.svg'><div class='row'>";
+		echo "<body ><div class='row'>";
 		echo "<img  src='".htmlspecialchars($_GET["courseName"]).".jpg' width='100%' height ='60px'><br><br><br><br>";
 		echo "<div class='col-md-12'><font size='18'  align='left'>".htmlspecialchars($_GET["courseName"])."</font> </div>";
 		echo "<br><br><br><br><br><br>";
@@ -115,6 +142,7 @@ if ($result->num_rows > 0) {
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
+
 		echo "<br><br><br><br><br><br>
 		<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result2 = $conn->query($sql2);
@@ -137,7 +165,36 @@ if ($result->num_rows > 0) {
 			echo "No Course description";
 		}
 		echo "</div>";
-        echo "<br><br><br><br><div class='col-md-12'><center> <b> Course Desciption:</b>" . $row["rt_contentdesc"]. "</center></div><br>";
+		
+
+		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
+		
+		echo "<br><br><br>";
+		
+		$result3 = $conn->query($sql3);
+
+		if ($result3->num_rows > 0)
+		{
+			// output data of each row
+			while($row3 = $result3->fetch_assoc()) 
+			{
+				echo "<div class='col-md-12'>";
+				echo "<button class='accordion'> >".$row3["rt_name"]." (".$row3["rt_contenttime"].")</button>";
+				echo "<div class='panel'>";
+				echo "<p >".$row3["rt_divdescription"]."</p>";
+				echo "</div>";
+				echo "</div>";
+				
+		
+			}
+		} else 
+		{
+			echo "No Course description";
+		}
+
+		
+		
+		
 		echo "<br>"."</div>";
         }
 } else {
@@ -146,28 +203,55 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 ?>
+
+
+
+
+
 <div id="modal-wrapper" class="modal">
   
   <form class="modal-content animate" action="/action_page.php">
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-      <img src="1.png" alt="Avatar" class="avatar">
-      <h1 style="text-align:center">Modal Popup Box</h1>
     </div>
 
     <div class="container">
-      <input type="text" placeholder="Enter Username" name="uname">
-      <input type="password" placeholder="Enter Password" name="psw">        
-      <button type="submit">Login</button>
-      <input type="checkbox" style="margin:26px 30px;"> Remember me      
-      <a href="#" style="text-decoration:none; float:right; margin-right:34px; margin-top:26px;">Forgot Password ?</a>
+	      <input type="RADIO" style="margin:26px 30px;"> SDFS       <input type="radio" style="margin:26px 30px;"> AJKSDFJK
+		  <br/>
+		  <br/>
+      <input type="password" placeholder="Demo Content" name="psw">        
+		  <br/>
+	        <input type="text" placeholder="Demo Content" name="uname">
+		  <br/>
+      <input type="password" placeholder="Demo Content" name="psw">    
+		  <br/>
+	        <input type="text" placeholder="Demo Content" name="uname">
+		  <br/>
+      <input type="password" placeholder="Demo Content" name="psw">    
+		  <br/>
+      <button type="submit">Login</button>     
     </div>
     
   </form>
   
 </div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    }
+}
+</script>
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
 
