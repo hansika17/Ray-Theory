@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2017 at 07:13 PM
+-- Generation Time: Dec 13, 2017 at 06:20 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -25,21 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rt_courecontent`
+-- Table structure for table `rt_coursecontentdescription`
 --
 
-CREATE TABLE `rt_courecontent` (
+CREATE TABLE `rt_coursecontentdescription` (
   `rt_name` varchar(255) NOT NULL,
-  `rt_hourstaken` varchar(255) NOT NULL,
-  `rt_coursede` varchar(255) NOT NULL
+  `rt_divdescription` varchar(255) NOT NULL,
+  `rt_contenttime` varchar(255) NOT NULL,
+  `rt_coursedescription` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rt_courecontent`
+-- Dumping data for table `rt_coursecontentdescription`
 --
 
-INSERT INTO `rt_courecontent` (`rt_name`, `rt_hourstaken`, `rt_coursede`) VALUES
-('sfdgsgsdf', 'sdfgdsfg', 'asdf');
+INSERT INTO `rt_coursecontentdescription` (`rt_name`, `rt_divdescription`, `rt_contenttime`, `rt_coursedescription`) VALUES
+('sdfgsdfgsdfg', 'sdfgsdfgsdf', '1hr', 'asdf'),
+('sdfgsdfgsdfgsdf', 'afgvsdfgsdfg', '2 hrs', 'asdf');
 
 -- --------------------------------------------------------
 
