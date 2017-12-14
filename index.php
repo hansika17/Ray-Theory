@@ -74,7 +74,7 @@ $('.thumb').hover(function(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-       <a class="navbar-brand" href="#"><img src='logo.png' align='left' width='50px'></img></a>
+       <a class="navbar-brand" href="#"><img src='logo.png' align='left' height='30px'></img></a>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">

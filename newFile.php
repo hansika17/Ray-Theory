@@ -115,6 +115,9 @@ button:hover {
 </style>
 </style>
 </head>
+
+
+
 <?php
 
 $conn= new mysqli('localhost','root','root','raytheory');
@@ -143,7 +146,7 @@ if ($result->num_rows > 0) {
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
 
-		echo "<br><br><br><br><br><br>
+		echo "<br><br><br>
 		<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result2 = $conn->query($sql2);
 
@@ -170,7 +173,7 @@ if ($result->num_rows > 0) {
 		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>";
-		
+				echo "<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result3 = $conn->query($sql3);
 
 		if ($result3->num_rows > 0)
@@ -179,9 +182,10 @@ if ($result->num_rows > 0) {
 			while($row3 = $result3->fetch_assoc()) 
 			{
 				echo "<div class='col-md-12'>";
-				echo "<button class='accordion'> >".$row3["rt_name"]." (".$row3["rt_contenttime"].")</button>";
-				echo "<div class='panel'>";
-				echo "<p >".$row3["rt_divdescription"]."</p>";
+				echo "<br/>";
+				echo "<button onclick=\"myFunction('".$row3["rt_name"]."')\" class='w3-button w3-block w3-black w3-left-align'>".$row3["rt_name"]." (".$row3["rt_contenttime"].")     >></button>";
+				echo "<div id='".$row3["rt_name"]."' class='w3-hide w3-animate-zoom'>";
+				echo "<p class='w3-button w3-block w3-left-align'>".$row3["rt_divdescription"]."</p>";
 				echo "</div>";
 				echo "</div>";
 				
@@ -201,9 +205,10 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 $conn->close();
-
+echo "</div>";
 ?>
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 
@@ -237,18 +242,12 @@ $conn->close();
   
 </div>
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
     }
 }
 </script>
