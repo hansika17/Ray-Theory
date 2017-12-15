@@ -127,7 +127,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    $row = $result->fetch_assoc();
 		
 		echo "<body ><div class='row'>";
 		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='60px'><br><br><br><br>";
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
 		echo "</div>";
-		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> <a class='btn btn-primary announce' data-toggle='modal' data-userid='".$row["rt_onlineprice"]."&".$row["rt_offlineprice"]."' >Pay Now</a> </button> </div>";	
+		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
@@ -197,7 +197,7 @@ if ($result->num_rows > 0) {
 		
 		
 		echo "<br>"."</div>";
-        }
+        
 } else {
     echo "0 results";
 }
@@ -222,19 +222,10 @@ echo "</div>";
 	
 		<input type="hidden" name="business" value="<?php echo $paypalID; ?>">
         
-        <!-- Specify a Buy Now button. -->
-        <input type="hidden" name="cmd" value="_xclick">
- 
-        <!-- Specify details about the item that buyers will purchase. -->
-        <input type="hidden" name="currency_code" value="USD">
 		<div class='row'>
-				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><span></span></input></div>
-				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount"><span></span></input></div>
+				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><?=$row['rt_onlineprice']?></div>
+				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount"><?=$row['rt_offlineprice']?></input></div>
         </div>
-        <!-- Specify URLs -->
-        <input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
-		<input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>
-		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
 		
 		 <span style="color:red" id="mandatory"></span>
 		  <br/>
@@ -288,16 +279,6 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-</script>
-<script>
-$(document).on("click", ".announce", function () {
-     var priceTag = $(this).data('userid');
-	 var values=priceTag.split('&');
-	 var $label = $('.container #priceFirst').next();
-     $label.text( values [0] );
-	 var $label2 = $('.container #priceSecond').next();
-	 $label2.text( values[1] );
-});
 </script>
 <script type = "text/javascript">
 $("#submit").click(function() {
