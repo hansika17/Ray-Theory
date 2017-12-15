@@ -12,8 +12,8 @@
     display: none;
     position: absolute;
     bottom: 50px;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     background: #999;
     background: rbga(	,0.3);
     text-align: center
@@ -153,7 +153,8 @@ $conn->close();
 <a name='contact'/>
 <footer>
 <center>
-  <div ng-controller="formCtrl" align='center'>
+<div class='row'>
+  <div ng-controller="formCtrl" align='right' class ='col-md-8'>
 <form method="post" name="myForm">
 
 <div>
@@ -190,7 +191,7 @@ $conn->close();
 <h4>{{result}}</h4>
 </form>
 
-</div>
+</div></div>
 <p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p>
 
 <center></footer>
