@@ -28,7 +28,7 @@
  <style>
 *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password],input[type=number] {
     width: 35%;
     padding: 12px 20px;
     margin: 8px 26px;
@@ -227,7 +227,7 @@ echo "</div>";
 	        <input type="text" placeholder="Occupation" name="occupation" id="occupation" value="<?php echo (empty($posted['occupation'])) ? '' : $posted['occupation']; ?>" />
 			<br/>
 		  <br/>
-      <input type="text" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
+      <input type="number" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
 		  <br/>
 		  <br/>
 		  <input type="text" placeholder="Location" name="location" value="<?php echo (empty($posted['location'])) ? '' : $posted['location']; ?>" id="location"/> 
