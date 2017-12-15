@@ -153,7 +153,7 @@ $conn->close();
 <a name='contact'/>
 <footer>
 <center>
-  <div ng-controller="formCtrl" align='right'>
+  <div ng-controller="formCtrl" align='center'>
 <form method="post" name="myForm">
 
 <div>
