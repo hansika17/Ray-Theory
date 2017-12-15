@@ -217,16 +217,16 @@ echo "</div>";
 
     <div class="container">
 	
-		
+		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
         
 		<div class='row'>
-				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><?php echo $row['rt_onlineprice'];?></input></div>
-				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount"><?php echo $row['rt_offlineprice'];?></input></div>
+				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input></div>
+				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input></div>
         </div>
 		
 		 <span style="color:red" id="mandatory"></span>
 		  <br/>
-		<input name="firstname" id="firstname" value="<?php echo (empty($posted['firstname'])) ? '' : $posted['firstname']; ?>" placeholder="Full Name" type="text" >    
+		<input name="name" id="name" value="<?php echo (empty($posted['name'])) ? '' : $posted['name']; ?>" placeholder="Full Name" type="text" >    
 		  <br/> 
 		  <span style="color:red" id="correctName"></span>
 		  <br/>
@@ -279,7 +279,7 @@ window.onclick = function(event) {
 </script>
 <script type = "text/javascript">
 $("#submit").click(function() {
-var name = $("#firstname").val();
+var name = $("#name").val();
 var email = $("#email").val();
 var phone = $("#phone").val();
 var occupation = $("#occupation").val();
