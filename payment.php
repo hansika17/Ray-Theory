@@ -28,11 +28,12 @@ if(isset($_POST['CheckOut']))
         
         <!-- Specify a Buy Now button. -->
         <input type="hidden" name="cmd" value="_xclick">
-		<input type="hidden" name="amount" value="10.00">
+		<input type="hidden" name="amount" value="<?=$_POST['amount']?>">
         <!-- Specify details about the item that buyers will purchase. -->
         <input type="hidden" name="currency_code" value="USD">
 		</div>
 		</form>
+		<?php die;?>
 		<script>
 window.onload = function(){
   document.forms['jsform'].submit();

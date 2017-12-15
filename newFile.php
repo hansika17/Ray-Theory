@@ -214,13 +214,10 @@ echo "</div>";
   
   <form class="modal-content animate"  method="post" action="payment.php">
         
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-    </div>
 
     <div class="container">
 	
-		<input type="hidden" name="business" value="<?php echo $paypalID; ?>">
+		
         
 		<div class='row'>
 				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><?php echo $row['rt_onlineprice'];?></input></div>
@@ -253,7 +250,7 @@ echo "</div>";
 	   <input type="text" name="note" placeholder="Any Note" value="<?php echo (empty($posted['note'])) ? '' : $posted['note']; ?>" id="note"/> 
 	  <br/>
 	 <br/>
-	 <button type="submit" value="CheckOut" id="submit">CheckOut</button>   
+	 <button type="submit" value="CheckOut" id="submit" name="CheckOut">CheckOut</button>   
     </div>
     
   </form>
