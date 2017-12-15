@@ -74,7 +74,7 @@ $('.thumb').hover(function(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-       <a class="navbar-brand" href="#"><img src='logo.png' align='left' height='30px'></img></a>
+       <a class="navbar-brand" href="#"><img src='logo.png' align='left' width='50px'></img></a>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -91,52 +91,65 @@ $('.thumb').hover(function(){
   <div class="container text-center">
     <h1>Demo Text</h1>      
     <p>Some More Demo Text</p>
-	<a href="#contact">
-	<img align='center' src="scroll.gif" z-index="999999" width='150px'></img>
-	</a>
-	</div>
+  </div>
 </div>
-
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
+  
+<div class="container-fluid bg-3 text-center">    
+  <h3>Demo Text</h3><br>
+  <div class="row">
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	  <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	    <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+  </div>
+</div><br>
 
 <div class="container-fluid bg-3 text-center">    
   <div class="row">
-  
-  <?php
-
-require_once('database.php');
-
-$sql = "SELECT * FROM rt_coursedescription order by rt_coursename;";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-		echo "<div class='col-sm-3 thumb'>"; 
-		echo "<a href='NEWfile.PHP?primarykey=".$row["primarykey"]."' >";
-		echo "<img src='".$row["rt_coursename"].".jpg' class='img-responsive' style='width:100%' alt='Image' / > </a>";
-		echo "<div class='text'>".$row["rt_conentshortdesc"]."</div>";
-		echo "<p>".$row["rt_coursename"]."</p>";
-		echo "</div>";
-	} 
-}	else {
-    echo "0 results";
-}
-$conn->close();
-
-?>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb"> 
+     
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	   <p>Some text..</p>
+    </div>
+    <div class="col-sm-3 thumb">
+      
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	   <div class="text">Demo Short Description that will overlay over the picture</div>
+	  <p>Some text..</p>
+    </div>
   </div>
 </div><br><br>
 
