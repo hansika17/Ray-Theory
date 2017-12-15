@@ -206,8 +206,8 @@ echo "</div>";
 		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
         
 		<div class='row'>
-				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input></div>
-				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input></div>
+				 <div class='col-md-3'>Online: <br><input type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input>&#36; or &#8377;</div>
+				<div class='col-md-6'> Offline: <br><input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input>&#36; or &#8377;</div>
         </div>
 		
 		 <span style="color:red" id="mandatory"></span>
