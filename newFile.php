@@ -138,6 +138,7 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
 		echo "</div>";
+	    //anchor tag added value in data-userid is passed
 		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> <a class='btn btn-primary announce' data-toggle='modal' data-userid='".$row["rt_onlineprice"]."&".$row["rt_offlineprice"]."' >Pay Now</a> </button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
@@ -289,10 +290,15 @@ window.onclick = function(event) {
     }
 }
 </script>
+//annouce is the class of anchor tag
 <script>
 $(document).on("click", ".announce", function () {
+	//getting value from data-userid
      var priceTag = $(this).data('userid');
+	//splitting string into two differente price online and offline
 	 var values=priceTag.split('&');
+	//passing values to span used with radio button
+	// required to pass to direct to radio button so that it can be directly  post via form and used in php?
 	 var $label = $('.container #priceFirst').next();
      $label.text( values [0] );
 	 var $label2 = $('.container #priceSecond').next();
