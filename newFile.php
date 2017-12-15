@@ -32,7 +32,7 @@
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 400;
+    width: 35%;
     padding: 12px 20px;
     margin: 8px 26px;
     display: inline-block;
@@ -130,7 +130,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 		
 		echo "<body ><div class='row'>";
-		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='60px'><br><br><br><br>";
+		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='100px'><br><br><br><br>";
 		echo "<div class='col-md-12'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
 		echo "<br><br><br><br><br><br>";
 		echo "<div class='col-md-9' style='border-style: solid; border-width: thin;'>";
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
 		echo "</div>";
-		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> <a class='btn btn-primary announce' data-toggle='modal' data-userid='".$row["rt_onlineprice"]."&".$row["rt_offlineprice"]."' >Pay Now</a> </button> </div>";	
+		echo "<br><div class='col-md-3'> <a onclick=\"document.getElementById('modal-wrapper').style.display='block'\"' class='btn btn-primary announce' data-toggle='modal' data-userid='".$row["rt_onlineprice"]."&".$row["rt_offlineprice"]."' > Pay Now</a></div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
@@ -213,11 +213,11 @@ echo "</div>";
 <div id="modal-wrapper" class="modal">
   
   <form class="modal-content animate"  method="post">
-        
+
     <div class="imgcontainer">
       <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
     </div>
-
+        <br>
     <div class="container">
 	
 		<input type="hidden" name="business" value="<?php echo $paypalID; ?>">
@@ -228,7 +228,7 @@ echo "</div>";
         <!-- Specify details about the item that buyers will purchase. -->
         <input type="hidden" name="currency_code" value="USD">
 		<div class='row'>
-				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><span></span></input></div>
+				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount" checked><span></span></input></div>
 				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount"><span></span></input></div>
         </div>
         <!-- Specify URLs -->
@@ -294,9 +294,9 @@ $(document).on("click", ".announce", function () {
      var priceTag = $(this).data('userid');
 	 var values=priceTag.split('&');
 	 var $label = $('.container #priceFirst').next();
-     $label.text( values [0] );
+     $label.text( 'Online: '+values [0] );
 	 var $label2 = $('.container #priceSecond').next();
-	 $label2.text( values[1] );
+	 $label2.text( 'Offline: '+values[1] );
 });
 </script>
 <script type = "text/javascript">
