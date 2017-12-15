@@ -14,11 +14,9 @@
     font-size: 15px;
     transition: 0.4s;
 }
-
 .active, .accordion:hover {
     background-color: #ccc; 
 }
-
 .panel {
     padding: 0 18px;
     display: none;
@@ -29,10 +27,9 @@
 
  <style>
 *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
-
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 400;
+    width: 35%;
     padding: 12px 20px;
     margin: 8px 26px;
     display: inline-block;
@@ -40,7 +37,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 	font-size:16px;
 }
-
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
@@ -55,7 +51,6 @@ button {
 button:hover {
     opacity: 0.8;
 }
-
 /* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
@@ -67,7 +62,6 @@ button:hover {
 	height:200px;
     border-radius: 50%;
 }
-
 /* The Modal (background) */
 .modal {
 	display:none;
@@ -80,7 +74,6 @@ button:hover {
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
-
 /* Modal Content Box */
 .modal-content {
     background-color: #fefefe;
@@ -89,7 +82,6 @@ button:hover {
     width: 40%; 
 	padding-bottom: 30px;
 }
-
 /* The Close Button (x) */
 .close {
     position: absolute;
@@ -103,7 +95,6 @@ button:hover {
     color: red;
     cursor: pointer;
 }
-
 /* Add Zoom Animation */
 .animate {
     animation: zoom 0.6s
@@ -119,12 +110,9 @@ button:hover {
 
 
 <?php
-
 require_once('database.php');
-
 $sql = "SELECT * FROM `rt_coursedescription` where primarykey='".htmlspecialchars($_GET["primarykey"])."';";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
     $row = $result->fetch_assoc();
@@ -137,16 +125,14 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
-		echo "</div>";
+		echo "</div><br>";
 		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
-
 		echo "<br><br><br>
 		<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result2 = $conn->query($sql2);
-
 		if ($result2->num_rows > 0)
 		{
 			// output data of each row
@@ -166,13 +152,11 @@ if ($result->num_rows > 0) {
 		}
 		echo "</div>";
 		
-
 		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>";
 				echo "<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result3 = $conn->query($sql3);
-
 		if ($result3->num_rows > 0)
 		{
 			// output data of each row
@@ -192,7 +176,6 @@ if ($result->num_rows > 0) {
 		{
 			echo "No Course description";
 		}
-
 		
 		
 		
@@ -214,7 +197,10 @@ echo "</div>";
   
   <form class="modal-content animate"  method="post" action="payment.php">
         
-
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+    </div>
+	<br>
     <div class="container">
 	
 		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
@@ -269,7 +255,6 @@ function myFunction(id) {
 </script>
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
-
 var modal = document.getElementById('modal-wrapper');
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -334,4 +319,3 @@ return false;
 });
   </script>
 </body>
-
