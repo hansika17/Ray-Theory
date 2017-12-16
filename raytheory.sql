@@ -80,14 +80,19 @@ DROP TABLE IF EXISTS `rt_enquiry`;
 
 CREATE TABLE `rt_enquiry` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
   `email_id` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `mobile_no` varchar(20) NOT NULL,
   `enquiry_msg` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rt_enquiry` */
+
+insert  into `rt_enquiry`(`id`,`name`,`email_id`,`city`,`mobile_no`,`enquiry_msg`) values 
+(1,'hansika','ha.843@gmail.com','h','4534666656','h'),
+(2,'hansika','ha.843@gmail.com','h','4534666656','h');
 
 /*Table structure for table `rt_payment` */
 
@@ -107,7 +112,7 @@ CREATE TABLE `rt_payment` (
   PRIMARY KEY (`id`),
   KEY `name` (`name`),
   KEY `name_2` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rt_payment` */
 
@@ -115,7 +120,8 @@ insert  into `rt_payment`(`id`,`name`,`email`,`age`,`phone`,`location`,`note`,`a
 (1,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
 (2,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
 (3,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
-(4,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','2017-12-15 16:39:51');
+(4,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','2017-12-15 16:39:51'),
+(5,'hansika','hansika.kalra171@gmail.com','67','7291919523','h','h','sdfgsdfgsdfff','::1','2017-12-16 09:15:12');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

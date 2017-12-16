@@ -19,11 +19,22 @@ require_once('database.php');
 
 if(isset($_POST['CheckOut']))
 {
-
-echo $sql="INSERT INTO raytheory.rt_payment (name,email,age,phone,location,note,amount,customer_ip,pay_time) values 
-('".$_POST['name']."','".$_POST['email']."','".$_POST['age']."','".$_POST['phone']."','".$_POST['location']."',
-'".$_POST['note']."','".$_POST['amount']."','".$_POST['customer_ip']."',NOW())";
-$conn->query($sql);
+	$msg="Hi raytheory, \nYou have recieved an Payment. \nPlease find the details below:";
+	$headers = "From: webmaster@example.com" . "\r\n" .
+	"CC: somebodyelse@example.com";
+	foreach ($_POST as $key => $value) 
+	{
+		$enquiry_data[$key] = $value;
+		$msg .= "\n".$key.":".$value;
+	}
+	$msg = wordwrap($msg,70);
+	echo $msg; 
+	//mail("someone@example.com","RayTheory Payments",$msg,$headers);
+	
+	$sql="INSERT INTO raytheory.rt_payment (name,email,age,phone,location,note,amount,customer_ip,pay_time) values 
+	('".$_POST['name']."','".$_POST['email']."','".$_POST['age']."','".$_POST['phone']."','".$_POST['location']."',
+	'".$_POST['note']."','".$_POST['amount']."','".$_POST['customer_ip']."',NOW())";
+	$conn->query($sql);
 }
 ?>
  <form class="modal-content animate"  method="post" action="<?php echo $paypalURL; ?>" name="jsform">

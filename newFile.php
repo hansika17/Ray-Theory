@@ -227,8 +227,9 @@ echo "</div>";
 	        <input type="text" placeholder="Occupation" name="occupation" id="occupation" value="<?php echo (empty($posted['occupation'])) ? '' : $posted['occupation']; ?>" />
 			<br/>
 		  <br/>
-      <input type="number" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
+      <input type="text" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
 		  <br/>
+		  <span style="color:red" id="correctAge"></span>
 		  <br/>
 		  <input type="text" placeholder="Location" name="location" value="<?php echo (empty($posted['location'])) ? '' : $posted['location']; ?>" id="location"/> 
       <br/>
@@ -289,6 +290,10 @@ else if (!validateNumber(phone)) {
 event.preventDefault();
   $( "#correctNumber" ).text( "please fill number of 10 digit" ).show();
 }
+else if (!validateAge(age)) {
+event.preventDefault();
+  $( "#correctAge" ).text( "Age must be in 2 digit number only" ).show();
+}
 function validateEmail(sEmail) {
 var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 if (filter.test(sEmail)) {
@@ -307,8 +312,17 @@ else {
 return false;
 }
 };
+function validateAge(sEmail) {
+var filter =  /^\d{1,2}$/;
+if (filter.test(sEmail)) {
+return true;
+}
+else {
+return false;
+}
+};
 function validateNumber(sEmail) {
-var filter = /^\d{10}$/;;
+var filter = /^\d{10}$/;
 if (filter.test(sEmail)) {
 return true;
 }
