@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
-		echo "</div><br>";
+		echo "</div>";
 		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";

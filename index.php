@@ -185,10 +185,9 @@ $conn->close();
 <label>Message:</label>
 <textarea placeholder="" style=" width:350px; overflow-y: scroll; height:200px;" type="text" name="enquiry_msg" ng-model="enquiry_msg" required></textarea>
 <br><span style="color:red" ng-show="myForm.enquiry_msg.$touched && myForm.enquiry_msg.$invalid">Message is required.</span>
+<br><span style="color:red">{{result}}</span>
 </div>
-<br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
-<h4>{{result}}</h4>
 </form>
 
 </div></div>
