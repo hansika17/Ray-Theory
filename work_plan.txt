@@ -1,20 +1,2 @@
-Pending on Sachin
-
-1. images not getting viewed of courses in php extenssion on home page chech with that assure it is,
-	if it is please share with me project again .  -- Done
-2. design inquiry form extend footer for that if needed. --Done
-3. raytheroy text below logo --
-4. design a form to fill cutomer details for making payment
-
-
-
-
-Pending on Hanshu
-1. Put first page (survey form) data in db 
-2. 
-
-
-Pending on Customer
-1. content of header will be given by freelancer
-2. complete discription of courses page
-3. wait for the API integration(payment gateway is not decided)
+1. change database , add column course name that is bought by user, as per that update code
+2. check with API
