@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <style>
 
 #centerdiv {
@@ -49,16 +49,22 @@ if(isset($_POST['CheckOut']))
 	
 			<input type="hidden" name="business" value="<?php echo $paypalID; ?>">
         
-			<!-- Specify a Buy Now button. -->
-			<input type="hidden" name="cmd" value="_xclick">
-			<input type="hidden" name="amount" value="<?=$_POST['amount']?>">
+        <!-- Specify a Buy Now button. -->
+        <input type="hidden" name="cmd" value="_xclick">
         
-			<!-- Specify details about the item that buyers will purchase. -->
-			<input type="hidden" name="currency_code" value="USD">
+        <!-- Specify details about the item that buyers will purchase. -->
+        <input type="hidden" name="item_name" value="course">
+        <input type="hidden" name="item_number" value="1234">
+        <input type="hidden" name="amount" value="1.00">
+        <input type="hidden" name="currency_code" value="INR">
+        
+        <!-- Specify URLs -->
+  
+        
 		
 			<!-- Specify URLs -->
-			<input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
-			<input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>
+			<input type='hidden' name='cancel_return' value='http://localhost/raytheoryhsm/paypal_integration_php/cancel.php'>
+			<input type='hidden' name='return' value='http://localhost/raytheoryhsm/paypal_integration_php/success.php'>
 		</div>	
 	</div>
 </form>
