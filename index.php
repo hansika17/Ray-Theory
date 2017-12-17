@@ -12,8 +12,8 @@
     display: none;
     position: absolute;
     bottom: 50px;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    width: 90%;
     background: #999;
     background: rbga(	,0.3);
     text-align: center
@@ -116,10 +116,7 @@ $('.thumb').hover(function(){
   
   <?php
 
-$conn= new mysqli('localhost','root','','raytheory');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+require_once('database.php');
 
 $sql = "SELECT * FROM rt_coursedescription order by rt_coursename;";
 $result = $conn->query($sql);
@@ -156,7 +153,8 @@ $conn->close();
 <a name='contact'/>
 <footer>
 <center>
-  <div ng-controller="formCtrl" align='right'>
+<div class='row'>
+  <div ng-controller="formCtrl" align='right' class ='col-md-8'>
 <form method="post" name="myForm">
 
 <div>
@@ -190,10 +188,10 @@ $conn->close();
 </div>
 <br>
 <button type="submit" class="btn" ng-click="formsubmit(myForm.$valid)"  ng-disabled="myForm.$invalid">Submit </button>
-<h4>{{result}}</h4>
+<h4 style="color:red">{{result}}</h4>
 </form>
 
-</div>
+</div></div>
 <p><strong>Note:</strong> The footer tag is not supported in Internet Explorer 8 and earlier versions.</p>
 
 <center></footer>

@@ -1,32 +1,21 @@
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 05:01 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+/*
+SQLyog Community v12.2.5 (32 bit)
+MySQL - 10.1.25-MariaDB : Database - raytheory
+*********************************************************************
+*/
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+/*!40101 SET NAMES utf8 */;
 
+/*!40101 SET SQL_MODE=''*/;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`raytheory` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
---
--- Database: `raytheory`
---
+/*Table structure for table `rt_coursecontentdescription` */
 
--- --------------------------------------------------------
-
---
--- Table structure for table `rt_coursecontentdescription`
---
+DROP TABLE IF EXISTS `rt_coursecontentdescription`;
 
 CREATE TABLE `rt_coursecontentdescription` (
   `rt_name` varchar(255) NOT NULL,
@@ -35,19 +24,15 @@ CREATE TABLE `rt_coursecontentdescription` (
   `rt_coursedescription` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rt_coursecontentdescription`
---
+/*Data for the table `rt_coursecontentdescription` */
 
-INSERT INTO `rt_coursecontentdescription` (`rt_name`, `rt_divdescription`, `rt_contenttime`, `rt_coursedescription`) VALUES
-('sdfgsdfgsdfg', 'sdfgsdfgsdf', '1hr', 'asdf'),
-('sdfgsdfgsdfgsdf', 'afgvsdfgsdfg', '2 hrs', 'asdf');
+insert  into `rt_coursecontentdescription`(`rt_name`,`rt_divdescription`,`rt_contenttime`,`rt_coursedescription`) values 
+('sdfgsdfgsdfg','sdfgsdfgsdf','1hr','asdf'),
+('sdfgsdfgsdfgsdf','afgvsdfgsdfg','2 hrs','asdf');
 
--- --------------------------------------------------------
+/*Table structure for table `rt_coursedescription` */
 
---
--- Table structure for table `rt_coursedescription`
---
+DROP TABLE IF EXISTS `rt_coursedescription`;
 
 CREATE TABLE `rt_coursedescription` (
   `primarykey` varchar(255) NOT NULL,
@@ -57,24 +42,21 @@ CREATE TABLE `rt_coursedescription` (
   `rt_offlineprice` varchar(255) NOT NULL,
   `rt_onlineprice` varchar(255) NOT NULL,
   `rt_offlinebatchtime` varchar(255) NOT NULL,
-  `rt_onlinebatchtime` varchar(255) NOT NULL
+  `rt_onlinebatchtime` varchar(255) NOT NULL,
+  PRIMARY KEY (`primarykey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rt_coursedescription`
---
+/*Data for the table `rt_coursedescription` */
 
-INSERT INTO `rt_coursedescription` (`primarykey`, `rt_conentshortdesc`, `rt_contentdesc`, `rt_coursename`, `rt_offlineprice`, `rt_onlineprice`, `rt_offlinebatchtime`, `rt_onlinebatchtime`) VALUES
-('adsfasd', 'asdfasd', 'asdfasd', 'secondCourse', 'adsfasdf', 'asdfasdf', 'adsfasdf', 'adfasd'),
-('asdf', 'ssdfgsdfgdsfgsdfgsdfg', 'adsfas', 'firstCourse', 'sdfgsdfgsdfg', 'sdfgsdfgsdfff', 'gsfgsdfgsdfgsdfg', 'sfdgsdfgsdf'),
-('asdfas', 'asdfasd', 'sadfsa', 'thirdCourse', 'adsfasdf', 'asdfasdf', 'adsfasdfa', 'asdfasdf'),
-('asdfasf', 'asdfasdf', 'asdfasdfsadf', 'fourthCourse', 'adsfasdfa', 'asdfasdfas', 'adsfasdfasd', 'asdfasdfasdf');
+insert  into `rt_coursedescription`(`primarykey`,`rt_conentshortdesc`,`rt_contentdesc`,`rt_coursename`,`rt_offlineprice`,`rt_onlineprice`,`rt_offlinebatchtime`,`rt_onlinebatchtime`) values 
+('adsfasd','asdfasd','asdfasd','secondCourse','adsfasdf','asdfasdf','adsfasdf','adfasd'),
+('asdf','ssdfgsdfgdsfgsdfgsdfg','adsfas','firstCourse','sdfgsdfgsdfg','sdfgsdfgsdfff','gsfgsdfgsdfgsdfg','sfdgsdfgsdf'),
+('asdfas','asdfasd','sadfsa','thirdCourse','adsfasdf','asdfasdf','adsfasdfa','asdfasdf'),
+('asdfasf','asdfasdf','asdfasdfsadf','fourthCourse','adsfasdfa','asdfasdfas','adsfasdfasd','asdfasdfasdf');
 
--- --------------------------------------------------------
+/*Table structure for table `rt_coursehighlights` */
 
---
--- Table structure for table `rt_coursehighlights`
---
+DROP TABLE IF EXISTS `rt_coursehighlights`;
 
 CREATE TABLE `rt_coursehighlights` (
   `rt_name` varchar(255) NOT NULL,
@@ -82,91 +64,65 @@ CREATE TABLE `rt_coursehighlights` (
   `rt_coursedescription` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `rt_coursehighlights`
---
+/*Data for the table `rt_coursehighlights` */
 
-INSERT INTO `rt_coursehighlights` (`rt_name`, `rt_highdesc`, `rt_coursedescription`) VALUES
-('addgasfgasdf', 'asgasgasfgsa', '	\r\nasdf'),
-('asdfs', 'adsfas', 'asdfff'),
-('asdfas', 'asdfsafd', 'asdf'),
-('asdasdffas', 'asdfsadsfasdfafd', 'asdf'),
-('asdassdfgdsdffas', 'asdfsadsfasdfsdfgsdfafd', 'asdf'),
-('asdfdsfsd', 'asdfsadfas', 'asdf');
+insert  into `rt_coursehighlights`(`rt_name`,`rt_highdesc`,`rt_coursedescription`) values 
+('addgasfgasdf','asgasgasfgsa','	\r\nasdf'),
+('asdfs','adsfas','asdfff'),
+('asdfas','asdfsafd','asdf'),
+('asdasdffas','asdfsadsfasdfafd','asdf'),
+('asdassdfgdsdffas','asdfsadsfasdfsdfgsdfafd','asdf'),
+('asdfdsfsd','asdfsadfas','asdf');
 
--- --------------------------------------------------------
+/*Table structure for table `rt_enquiry` */
 
---
--- Table structure for table `rt_enquiry`
---
+DROP TABLE IF EXISTS `rt_enquiry`;
 
 CREATE TABLE `rt_enquiry` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
   `email_id` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `mobile_no` varchar(20) NOT NULL,
-  `enquiry_msg` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `enquiry_msg` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+/*Data for the table `rt_enquiry` */
 
---
--- Table structure for table `rt_payment`
---
+insert  into `rt_enquiry`(`id`,`name`,`email_id`,`city`,`mobile_no`,`enquiry_msg`) values 
+(1,'hansika','ha.843@gmail.com','h','4534666656','h'),
+(2,'hansika','ha.843@gmail.com','h','4534666656','h');
+
+/*Table structure for table `rt_payment` */
+
+DROP TABLE IF EXISTS `rt_payment`;
 
 CREATE TABLE `rt_payment` (
-  `id` int(6) NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `email_id` varchar(50) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `contact_number` varchar(20) NOT NULL,
-  `merchant_id` varchar(10) NOT NULL,
-  `amount` int(20) NOT NULL,
-  `pay_time` datetime NOT NULL,
-  `customer_ip` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `email` varchar(50) NOT NULL,
+  `age` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `amount` varchar(20) NOT NULL,
+  `customer_ip` varchar(50) NOT NULL,
+  `pay_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`),
+  KEY `name_2` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
+/*Data for the table `rt_payment` */
 
---
--- Indexes for table `rt_coursedescription`
---
-ALTER TABLE `rt_coursedescription`
-  ADD PRIMARY KEY (`primarykey`);
+insert  into `rt_payment`(`id`,`name`,`email`,`age`,`phone`,`location`,`note`,`amount`,`customer_ip`,`pay_time`) values 
+(1,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
+(2,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
+(3,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','0000-00-00 00:00:00'),
+(4,'hansika','hansika.kalra171@gmail.com','7','7291919523','h','h','sdfgsdfgsdfg','::1','2017-12-15 16:39:51'),
+(5,'hansika','hansika.kalra171@gmail.com','67','7291919523','h','h','sdfgsdfgsdfff','::1','2017-12-16 09:15:12');
 
---
--- Indexes for table `rt_enquiry`
---
-ALTER TABLE `rt_enquiry`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rt_payment`
---
-ALTER TABLE `rt_payment`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `name` (`name`),
-  ADD KEY `name_2` (`name`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `rt_enquiry`
---
-ALTER TABLE `rt_enquiry`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rt_payment`
---
-ALTER TABLE `rt_payment`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

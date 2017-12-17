@@ -14,11 +14,9 @@
     font-size: 15px;
     transition: 0.4s;
 }
-
 .active, .accordion:hover {
     background-color: #ccc; 
 }
-
 .panel {
     padding: 0 18px;
     display: none;
@@ -29,10 +27,9 @@
 
  <style>
 *{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
-
 /* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 30%;
+input[type=text], input[type=password],input[type=number] {
+    width: 35%;
     padding: 12px 20px;
     margin: 8px 26px;
     display: inline-block;
@@ -40,7 +37,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 	font-size:16px;
 }
-
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
@@ -49,13 +45,12 @@ button {
     margin: 8px 26px;
     border: none;
     cursor: pointer;
-    width: 20%;
+    width: 250;
 	font-size:20px;
 }
 button:hover {
     opacity: 0.8;
 }
-
 /* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
@@ -67,7 +62,6 @@ button:hover {
 	height:200px;
     border-radius: 50%;
 }
-
 /* The Modal (background) */
 .modal {
 	display:none;
@@ -80,7 +74,6 @@ button:hover {
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
-
 /* Modal Content Box */
 .modal-content {
     background-color: #fefefe;
@@ -89,7 +82,6 @@ button:hover {
     width: 40%; 
 	padding-bottom: 30px;
 }
-
 /* The Close Button (x) */
 .close {
     position: absolute;
@@ -103,7 +95,6 @@ button:hover {
     color: red;
     cursor: pointer;
 }
-
 /* Add Zoom Animation */
 .animate {
     animation: zoom 0.6s
@@ -115,19 +106,16 @@ button:hover {
 </style>
 <script type = "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
+
+
+
 <?php
-
-$conn= new mysqli('localhost','root','','raytheory');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
+require_once('database.php');
 $sql = "SELECT * FROM `rt_coursedescription` where primarykey='".htmlspecialchars($_GET["primarykey"])."';";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    $row = $result->fetch_assoc();
 		
 		echo "<body ><div class='row'>";
 		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='60px'><br><br><br><br>";
@@ -138,15 +126,13 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
 		echo "</div>";
-		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> <a class='btn btn-primary announce' data-toggle='modal' data-userid='".$row["rt_onlineprice"]."&".$row["rt_offlineprice"]."' >Pay Now</a> </button> </div>";		
+		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
-
-		echo "<br><br><br><br><br><br>
+		echo "<br><br><br>
 		<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result2 = $conn->query($sql2);
-
 		if ($result2->num_rows > 0)
 		{
 			// output data of each row
@@ -166,22 +152,21 @@ if ($result->num_rows > 0) {
 		}
 		echo "</div>";
 		
-
 		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>";
-		
+				echo "<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
 		$result3 = $conn->query($sql3);
-
 		if ($result3->num_rows > 0)
 		{
 			// output data of each row
 			while($row3 = $result3->fetch_assoc()) 
 			{
 				echo "<div class='col-md-12'>";
-				echo "<button class='accordion'> >".$row3["rt_name"]." (".$row3["rt_contenttime"].")</button>";
-				echo "<div class='panel'>";
-				echo "<p >".$row3["rt_divdescription"]."</p>";
+				echo "<br/>";
+				echo "<button onclick=\"myFunction('".$row3["rt_name"]."')\" class='w3-button w3-block w3-black w3-left-align'>".$row3["rt_name"]." (".$row3["rt_contenttime"].")     >></button>";
+				echo "<div id='".$row3["rt_name"]."' class='w3-hide w3-animate-zoom'>";
+				echo "<p class='w3-button w3-block w3-left-align'>".$row3["rt_divdescription"]."</p>";
 				echo "</div>";
 				echo "</div>";
 				
@@ -191,45 +176,43 @@ if ($result->num_rows > 0) {
 		{
 			echo "No Course description";
 		}
-
 		
 		
 		
 		echo "<br>"."</div>";
-        }
+        
 } else {
     echo "0 results";
 }
 $conn->close();
-
+echo "</div>";
 ?>
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 
 
-<div id="modal-wrapper" class="modal">
+<div id="modal-wrapper" class="modal" >
   
   <form class="modal-content animate"  method="post" action="payment.php">
         
     <div class="imgcontainer">
       <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
     </div>
-
+	<br>
     <div class="container">
 	
-		<div class='row'>
-				 <div class='col-md-3'><input type="radio" id="priceFirst" name="amount"><span></span></input></div>
-				<div class='col-md-6'> <input type="radio" id="priceSecond" name="amount"><span></span></input></div>
-        </div>
-        <!-- Specify URLs -->
-        <input type='hidden' name='cancel_return' value='http://localhost/paypal_integration_php/cancel.php'>
-		<input type='hidden' name='return' value='http://localhost/paypal_integration_php/success.php'>
 		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
+        
+		<div class='row'>
+				 <div class='col-md-3'>Online: <br><input checked type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input>&#36; or &#8377;</div>
+				<div class='col-md-6'> Offline: <br><input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input>&#36; or &#8377;</div>
+        </div>
 		
 		 <span style="color:red" id="mandatory"></span>
 		  <br/>
-		<input name="firstname" id="firstname" value="<?php echo (empty($posted['firstname'])) ? '' : $posted['firstname']; ?>" placeholder="Full Name" type="text" >    
+		<input name="name" id="name" value="<?php echo (empty($posted['name'])) ? '' : $posted['name']; ?>" placeholder="Full Name" type="text" >    
 		  <br/> 
 		  <span style="color:red" id="correctName"></span>
 		  <br/>
@@ -246,6 +229,7 @@ $conn->close();
 		  <br/>
       <input type="text" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
 		  <br/>
+		  <span style="color:red" id="correctAge"></span>
 		  <br/>
 		  <input type="text" placeholder="Location" name="location" value="<?php echo (empty($posted['location'])) ? '' : $posted['location']; ?>" id="location"/> 
       <br/>
@@ -253,31 +237,25 @@ $conn->close();
 	   <input type="text" name="note" placeholder="Any Note" value="<?php echo (empty($posted['note'])) ? '' : $posted['note']; ?>" id="note"/> 
 	  <br/>
 	 <br/>
-	 <button type="submit" name="CheckOut" id="submit">CheckOut</button>   
+	 <button type="submit" value="CheckOut" id="submit" name="CheckOut">CheckOut</button>   
     </div>
     
   </form>
   
+  
 </div>
 <script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
     }
 }
 </script>
 <script>
 // If user clicks anywhere outside of the modal, Modal will close
-
 var modal = document.getElementById('modal-wrapper');
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -285,19 +263,9 @@ window.onclick = function(event) {
     }
 }
 </script>
-<script>
-$(document).on("click", ".announce", function () {
-     var priceTag = $(this).data('userid');
-	 var values=priceTag.split('&');
-	 var $label = $('.container #priceFirst').next();
-     $label.text( values [0] );
-	 var $label2 = $('.container #priceSecond').next();
-	 $label2.text( values[1] );
-});
-</script>
 <script type = "text/javascript">
 $("#submit").click(function() {
-var name = $("#firstname").val();
+var name = $("#name").val();
 var email = $("#email").val();
 var phone = $("#phone").val();
 var occupation = $("#occupation").val();
@@ -322,6 +290,10 @@ else if (!validateNumber(phone)) {
 event.preventDefault();
   $( "#correctNumber" ).text( "please fill number of 10 digit" ).show();
 }
+else if (!validateAge(age)) {
+event.preventDefault();
+  $( "#correctAge" ).text( "Age must be in 2 digit number only" ).show();
+}
 function validateEmail(sEmail) {
 var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
 if (filter.test(sEmail)) {
@@ -340,8 +312,17 @@ else {
 return false;
 }
 };
+function validateAge(sEmail) {
+var filter =  /^\d{1,2}$/;
+if (filter.test(sEmail)) {
+return true;
+}
+else {
+return false;
+}
+};
 function validateNumber(sEmail) {
-var filter = /^\d{10}$/;;
+var filter = /^\d{10}$/;
 if (filter.test(sEmail)) {
 return true;
 }
@@ -352,4 +333,3 @@ return false;
 });
   </script>
 </body>
-
