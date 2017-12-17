@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-4'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
 		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
-		echo "</div>";
+		echo "</div><br>";
 		echo "<div class='col-md-3'> <button onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
@@ -204,7 +204,7 @@ echo "</div>";
     <div class="container">
 	
 		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
-        
+        <input type="hidden" name="coursename" value="<?php echo $row['rt_coursename'];?>">
 		<div class='row'>
 				 <div class='col-md-3'>Online: <br><input checked type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input>&#36; or &#8377;</div>
 				<div class='col-md-6'> Offline: <br><input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input>&#36; or &#8377;</div>

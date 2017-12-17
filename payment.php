@@ -28,12 +28,11 @@ if(isset($_POST['CheckOut']))
 		$msg .= "\n".$key.":".$value;
 	}
 	$msg = wordwrap($msg,70);
-	echo $msg; 
-	//mail("someone@example.com","RayTheory Payments",$msg,$headers);
+	mail("contact@raytheory.com","RayTheory Payments",$msg,$headers);
 	
-	$sql="INSERT INTO raytheory.rt_payment (name,email,age,phone,location,note,amount,customer_ip,pay_time) values 
+	 $sql="INSERT INTO rt_payment (name,email,age,phone,location,note,amount,coursename,customer_ip,status,pay_time) values 
 	('".$_POST['name']."','".$_POST['email']."','".$_POST['age']."','".$_POST['phone']."','".$_POST['location']."',
-	'".$_POST['note']."','".$_POST['amount']."','".$_POST['customer_ip']."',NOW())";
+	'".$_POST['note']."','".$_POST['amount']."','".$_POST['coursename']."','".$_POST['customer_ip']."','0',NOW())";
 	$conn->query($sql);
 }
 ?>

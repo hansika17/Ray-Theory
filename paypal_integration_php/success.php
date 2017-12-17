@@ -1,8 +1,8 @@
 <?php
 include 'dbConfig.php';
 
-//Get payment information from PayPal
-$item_number = $_GET['item_number']; 
+//Get payment information  PayPal
+$item_number = $_GET['itemfrom_number']; 
 $txn_id = $_GET['tx'];
 $payment_gross = $_GET['amt'];
 $currency_code = $_GET['cc'];

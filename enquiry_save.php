@@ -14,7 +14,7 @@ foreach ($data as $key => $value)
 	$msg .= "\n".$key.":".$value;
 }
 $msg = wordwrap($msg,70);
-//mail("someone@example.com","RayTheory Enquiry",$msg,$headers);
+mail("contact@raytheory.com","RayTheory Enquiry",$msg,$headers);
 if(!empty($enquiry_data))
 {
 	
