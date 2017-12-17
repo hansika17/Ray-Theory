@@ -74,7 +74,7 @@ $('.thumb').hover(function(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-       <a class="navbar-brand" href="#"><img src='logo.png' align='left' width='50px'></img></a>
+       <a class="navbar-brand" href="#"><img src='logo.png' align='left' height='30px'></img></a>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -96,63 +96,50 @@ $('.thumb').hover(function(){
 	</a>
 	</div>
 </div>
-  
-<div class="container-fluid bg-3 text-center">    
-  <h3>Demo Text</h3><br>
-  <div class="row">
-    <div class="col-sm-3 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb"> 
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	  <div class="text">Demo Short Description that will overlay over the picture</div>
-	   <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb"> 
-     
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	    <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
-  </div>
-</div><br>
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
 
 <div class="container-fluid bg-3 text-center">    
   <div class="row">
-    <div class="col-sm-3 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb"> 
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb"> 
-     
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	   <p>Some text..</p>
-    </div>
-    <div class="col-sm-3 thumb">
-      
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	   <div class="text">Demo Short Description that will overlay over the picture</div>
-	  <p>Some text..</p>
-    </div>
+  
+  <?php
+
+$conn= new mysqli('localhost','root','','raytheory');
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql = "SELECT * FROM rt_coursedescription order by rt_coursename;";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+		echo "<div class='col-sm-3 thumb'>"; 
+		echo "<a href='NEWfile.PHP?primarykey=".$row["primarykey"]."' >";
+		echo "<img src='".$row["rt_coursename"].".jpg' class='img-responsive' style='width:100%' alt='Image' / > </a>";
+		echo "<div class='text'>".$row["rt_conentshortdesc"]."</div>";
+		echo "<p>".$row["rt_coursename"]."</p>";
+		echo "</div>";
+	} 
+}	else {
+    echo "0 results";
+}
+$conn->close();
+
+?>
   </div>
 </div><br><br>
 
@@ -211,7 +198,25 @@ $('.thumb').hover(function(){
 
 <center></footer>
 
-
+<script>
+var app = angular.module('myApp',['ngRoute']);
+app.directive('myDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, mCtrl) {
+            function myValidation(value) {
+                if (value.length<10 || value.length>10  ) {
+                    mCtrl.$setValidity('number', true);
+                } else {
+                    mCtrl.$setValidity('number', false);
+                }
+                return value;
+            }
+            mCtrl.$parsers.push(myValidation);
+        }
+    };
+});
+</script>
 <script>
 var app = angular.module('myApp',[]);
 app.controller("formCtrl", ['$scope', '$http', function($scope, $http) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2017 at 07:13 PM
+-- Generation Time: Dec 13, 2017 at 05:01 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -25,21 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rt_courecontent`
+-- Table structure for table `rt_coursecontentdescription`
 --
 
-CREATE TABLE `rt_courecontent` (
+CREATE TABLE `rt_coursecontentdescription` (
   `rt_name` varchar(255) NOT NULL,
-  `rt_hourstaken` varchar(255) NOT NULL,
-  `rt_coursede` varchar(255) NOT NULL
+  `rt_divdescription` varchar(255) NOT NULL,
+  `rt_contenttime` varchar(255) NOT NULL,
+  `rt_coursedescription` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rt_courecontent`
+-- Dumping data for table `rt_coursecontentdescription`
 --
 
-INSERT INTO `rt_courecontent` (`rt_name`, `rt_hourstaken`, `rt_coursede`) VALUES
-('sfdgsgsdf', 'sdfgdsfg', 'asdf');
+INSERT INTO `rt_coursecontentdescription` (`rt_name`, `rt_divdescription`, `rt_contenttime`, `rt_coursedescription`) VALUES
+('sdfgsdfgsdfg', 'sdfgsdfgsdf', '1hr', 'asdf'),
+('sdfgsdfgsdfgsdf', 'afgvsdfgsdfg', '2 hrs', 'asdf');
 
 -- --------------------------------------------------------
 
@@ -51,7 +53,7 @@ CREATE TABLE `rt_coursedescription` (
   `primarykey` varchar(255) NOT NULL,
   `rt_conentshortdesc` varchar(255) NOT NULL,
   `rt_contentdesc` varchar(255) NOT NULL,
-  `coursename` varchar(255) NOT NULL,
+  `rt_coursename` varchar(255) NOT NULL,
   `rt_offlineprice` varchar(255) NOT NULL,
   `rt_onlineprice` varchar(255) NOT NULL,
   `rt_offlinebatchtime` varchar(255) NOT NULL,
@@ -62,11 +64,11 @@ CREATE TABLE `rt_coursedescription` (
 -- Dumping data for table `rt_coursedescription`
 --
 
-INSERT INTO `rt_coursedescription` (`primarykey`, `rt_conentshortdesc`, `rt_contentdesc`, `coursename`, `rt_offlineprice`, `rt_onlineprice`, `rt_offlinebatchtime`, `rt_onlinebatchtime`) VALUES
-('adsfasd', '', 'asdfasd', 'secondCourse', '', '', '', ''),
+INSERT INTO `rt_coursedescription` (`primarykey`, `rt_conentshortdesc`, `rt_contentdesc`, `rt_coursename`, `rt_offlineprice`, `rt_onlineprice`, `rt_offlinebatchtime`, `rt_onlinebatchtime`) VALUES
+('adsfasd', 'asdfasd', 'asdfasd', 'secondCourse', 'adsfasdf', 'asdfasdf', 'adsfasdf', 'adfasd'),
 ('asdf', 'ssdfgsdfgdsfgsdfgsdfg', 'adsfas', 'firstCourse', 'sdfgsdfgsdfg', 'sdfgsdfgsdfff', 'gsfgsdfgsdfgsdfg', 'sfdgsdfgsdf'),
-('asdfas', '', 'sadfsa', 'thirdCourse', '', '', '', ''),
-('asdfasf', '', 'asdfasdfsadf', 'fourthCourse', '', '', '', '');
+('asdfas', 'asdfasd', 'sadfsa', 'thirdCourse', 'adsfasdf', 'asdfasdf', 'adsfasdfa', 'asdfasdf'),
+('asdfasf', 'asdfasdf', 'asdfasdfsadf', 'fourthCourse', 'adsfasdfa', 'asdfasdfas', 'adsfasdfasd', 'asdfasdfasdf');
 
 -- --------------------------------------------------------
 
