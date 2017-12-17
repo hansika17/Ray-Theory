@@ -1,5 +1,5 @@
 <head>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/bootstrap.min.css">
  
  <style>
 .accordion {
@@ -104,7 +104,7 @@ button:hover {
     to {transform: scale(1)}
 }
 </style>
-<script type = "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type = "text/javascript" src="js/jquery.min.js"></script>
 </head>
 
 
@@ -188,7 +188,7 @@ $conn->close();
 echo "</div>";
 ?>
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/w3.css">
 
 
 
