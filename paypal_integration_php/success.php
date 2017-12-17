@@ -1,4 +1,32 @@
-<?php
+	 <link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+	 #centerdiv {
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+</style>
+
+<div class='row'  id ='centerdiv'>
+
+
+<div class='row-md-12 row-xs-12'>	
+<center>Hi Customer,</center>
+</div>
+
+<div class='row-md-12 row-xs-12'>	
+<center>We Have received your order with transaction no. </center>
+</div>
+
+<div class='row-md-12 row-xs-12'>	
+<center>Thank you for the order.</center>
+</div>
+
+</div>
+	
+	<?php
 include 'dbConfig.php';
 
 //Get payment information from PayPal
