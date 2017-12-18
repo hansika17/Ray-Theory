@@ -12,6 +12,10 @@
 </style>
 <body 		>
 <?php
+
+//read from file here and call the function 
+
+
 $paypalURL = 'https://www.sandbox.paypal.com/cgi-bin/webscr'; //Test PayPal API URL
 $paypalID = 'raytheory.com-facilitator@gmail.com'; //Business Email
 
