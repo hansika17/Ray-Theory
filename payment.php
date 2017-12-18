@@ -59,7 +59,7 @@ if(isset($_POST['CheckOut']))
         <input type="hidden" name="item_name" value="course">
         <input type="hidden" name="item_number" value="1234">
         <input type="hidden" name="amount" value="1.00">
-        <input type="hidden" name="currency_code" value="INR">
+        <input type="hidden" name="currency_code" value="USD">
         
         <!-- Specify URLs -->
   

@@ -118,7 +118,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 		
 		echo "<body ><div class='row'>";
-		echo "<img  src='".$row["rt_coursename"].".jpg' width='100%' height ='60px'><br><br><br><br>";
+		echo "<div class='col-md-12'> <img  src='".$row["rt_coursename"].".jpg' width='100%' height ='10%'> </img> </div><br><br><br><br>";
 		echo "<div class='col-md-12'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
 		echo "<br><br><br><br><br><br>";
 		echo "<div class='col-md-9' style='border-style: solid; border-width: thin;'>";
