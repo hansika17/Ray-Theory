@@ -38,7 +38,7 @@ $('.thumb').hover(function(){
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/angular.min.js"></script> 
-  <title>Bootstrap Example</title>
+  <title>RayTheory, A new way of learning</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
