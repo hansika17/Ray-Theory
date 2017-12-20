@@ -45,7 +45,7 @@ button {
     margin: 8px 26px;
     border: none;
     cursor: pointer;
-    width: 250;
+    width:90%;
 	font-size:20px;
 }
 button:hover {
@@ -119,19 +119,18 @@ if ($result->num_rows > 0) {
 		
 		echo "<body ><div class='row container-fluid bg-3'>";
 		echo "<div class='col-md-12'> <img  src='".$row["rt_coursename"].".jpg' width='100%' height ='10%'> </img> </div><br><br><br><br>";
-		echo "<div class='col-md-12 container-fluid bg-3'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
+		echo "<div class='col-md-12'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
 		echo "<br><br><br><br><br><br>";
-		echo "<div class='col-md-9 container-fluid bg-3' style='border-style: solid; border-width: thin;'>";
-		echo "<div class='row'><div class='col-md-4'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
-		echo "<div class='col-md-4'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
-		echo "<div class='col-md-4'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
-		echo "</div></div>";
-		echo "<div class='col-md-3'> <button align='right' onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div>";	
+		echo "<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'>";
+		echo "<div class='row'><div class='col-md-3 col-xs-3'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
+		echo "<div class='col-md-3 col-xs-3'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
+		echo "<div class='col-md-3 col-xs-3'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
+		echo "<div class='col-md-3 col-xs-3'> <button align='right' onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div></div></div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>
-		<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
+		<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'>";
 		$result2 = $conn->query($sql2);
 		if ($result2->num_rows > 0)
 		{
@@ -155,7 +154,7 @@ if ($result->num_rows > 0) {
 		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>";
-				echo "<div class='col-md-12' style='border-style: solid; border-width: thin;'>";
+				echo "<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);' >";
 		$result3 = $conn->query($sql3);
 		if ($result3->num_rows > 0)
 		{
