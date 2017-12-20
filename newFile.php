@@ -236,7 +236,7 @@ echo "</div>";
 	   <input type="text" name="note" placeholder="Any Note" value="<?php echo (empty($posted['note'])) ? '' : $posted['note']; ?>" id="note"/> 
 	  <br/>
 	 <br/>
-	 <button type="submit" value="CheckOut" id="submit" name="CheckOut">CheckOut</button>   
+	 <button type="submit" style='width:40%' value="CheckOut" id="submit" name="CheckOut">CheckOut</button>   
     </div>
     
   </form>
