@@ -108,7 +108,7 @@ button:hover {
 </head>
 
 
-
+<div class="container-fluid bg-3 text-center">  
 <?php
 require_once('database.php');
 $sql = "SELECT * FROM `rt_coursedescription` where primarykey='".htmlspecialchars($_GET["primarykey"])."';";
@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 echo "</div>";
 ?>
-
+</div>
 <link rel="stylesheet" href="css/w3.css">
 
 
@@ -205,6 +205,7 @@ echo "</div>";
 	
 		<input type="hidden" name="customer_ip" value="<?=$_SERVER['REMOTE_ADDR']?>">
         <input type="hidden" name="coursename" value="<?php echo $row['rt_coursename'];?>">
+		
 		<div class='row'>
 				 <div class='col-md-3'>Online: <br><input checked type="radio" id="priceFirst" name="amount" value="<?php echo $row['rt_onlineprice'];?>"><?php echo $row['rt_onlineprice'];?></input>&#36; or &#8377;</div>
 				<div class='col-md-6'> Offline: <br><input type="radio" id="priceSecond" name="amount" value="<?php echo $row['rt_offlineprice'];?>"><?php echo $row['rt_offlineprice'];?></input>&#36; or &#8377;</div>

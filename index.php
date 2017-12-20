@@ -122,14 +122,22 @@ $sql = "SELECT * FROM rt_coursedescription order by rt_coursename;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+			$x = 1;
     // output data of each row
     while($row = $result->fetch_assoc()) {
-		echo "<div class='col-sm-3 thumb'>"; 
+
+		echo "<div class='col-md-3 col-xs-12'  >"; 
 		echo "<a href='NEWfile.PHP?primarykey=".$row["primarykey"]."' >";
-		echo "<img src='".$row["rt_coursename"].".jpg' class='img-responsive' style='width:100%' alt='Image' / > </a>";
-		echo "<div class='text'>".$row["rt_conentshortdesc"]."</div>";
-		echo "<p>".$row["rt_coursename"]."</p>";
+		echo " <div  style='border-top: 5px solid ";
+		if($x%4==1) echo "red";
+		else if($x%4==2) echo "purple";
+		else if($x%4==3) echo "green"; 
+		else if($x%4==0) echo "blue";
+		echo "; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'>";
+		echo "<p><h3>".$row["rt_coursename"]."</h3></p>".$row["rt_conentshortdesc"];
+		echo "<br/><br/></div></a>";
 		echo "</div>";
+		$x++;
 	} 
 }	else {
     echo "0 results";
