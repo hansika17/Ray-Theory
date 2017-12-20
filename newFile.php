@@ -122,15 +122,15 @@ if ($result->num_rows > 0) {
 		echo "<div class='col-md-12'><font size='18'  align='left'>".$row["rt_coursename"]."</font> </div>";
 		echo "<br><br><br><br><br><br>";
 		echo "<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'>";
-		echo "<div class='row'><div class='col-md-3 col-xs-3'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
+		echo "<br/><div class='row'><div class='col-md-3 col-xs-3'> <b>Training Mode <br>Upcoming Slot:-</b></div>";
 		echo "<div class='col-md-3 col-xs-3'> <b>LIVE ONLINE:</b><br>".$row["rt_onlinebatchtime"]."</div>";
 		echo "<div class='col-md-3 col-xs-3'> <b>CLASSROOM:</b><br>". $row["rt_offlinebatchtime"]."</div>";
-		echo "<div class='col-md-3 col-xs-3'> <button align='right' onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div></div></div>";	
+		echo "<div class='col-md-3 col-xs-3'> <button align='right' onclick=\"document.getElementById('modal-wrapper').style.display='block'\"'> Pay Now</button> </div></div><br/></div>";	
 		echo "<br><br>";
 		$sql2 = "SELECT * FROM rt_coursehighlights where rt_coursedescription ='".$row["primarykey"]."';";
 		
 		echo "<br><br><br>
-		<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'>";
+		<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);'><br/>";
 		$result2 = $conn->query($sql2);
 		if ($result2->num_rows > 0)
 		{
@@ -149,12 +149,12 @@ if ($result->num_rows > 0) {
 		{
 			echo "No Course description";
 		}
-		echo "</div>";
+		echo "<br/></div>";
 		
 		$sql3 = "SELECT * FROM rt_coursecontentdescription where rt_coursedescription ='".$row["primarykey"]."';";
 		
-		echo "<br><br><br>";
-				echo "<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);' >";
+		echo "<br><br><br><br/>";
+				echo "<div class='col-md-12' style='border-style: solid; border-width: thin; -moz-box-shadow: 0px 3px 8px rgb(100,100,100); -webkit-box-shadow: 0px 3px 8px rgb(100,100,100); box-shadow: 0px 3px 8px rgb(100,100,100);' ><br/>";
 		$result3 = $conn->query($sql3);
 		if ($result3->num_rows > 0)
 		{
@@ -162,11 +162,10 @@ if ($result->num_rows > 0) {
 			while($row3 = $result3->fetch_assoc()) 
 			{
 				echo "<div class='col-md-12'>";
-				echo "<br/>";
 				echo "<button onclick=\"myFunction('".$row3["rt_name"]."')\" class='w3-button w3-block w3-black w3-left-align'>".$row3["rt_name"]." (".$row3["rt_contenttime"].")     >></button>";
 				echo "<div id='".$row3["rt_name"]."' class='w3-hide w3-animate-zoom'>";
 				echo "<p class='w3-button w3-block w3-left-align'>".$row3["rt_divdescription"]."</p>";
-				echo "</div>";
+				echo "</div><br/>";
 				echo "</div>";
 				
 		
