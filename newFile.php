@@ -140,7 +140,7 @@ if ($result->num_rows > 0) {
 			{
 				echo "<div class='col-md-4'>";
 				echo "<img src='".$row2["rt_name"].".jpg'></a>";
-				echo "<b>".$row2["rt_name"]."</b>";
+				echo "<b>".$row2["rt_name"].":</b> ";
 				echo $row2["rt_highdesc"];
 				echo "</div>";
 				
