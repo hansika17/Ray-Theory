@@ -1,6 +1,6 @@
 <head>
  <link rel="stylesheet" href="css/bootstrap.min.css">
- 
+   <link rel="shortcut icon" href="logo2.png" type="image/png">
  <style>
 .accordion {
     background-color: #eee;
