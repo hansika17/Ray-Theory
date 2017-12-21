@@ -5,22 +5,28 @@
 
 
 
-$myfile = fopen("store.prop", "r") or die("Unable to open file!");
+
+
+
+$Pass="";
+$myfile = fopen("store_key1.prop", "r") or die("Unable to open file!");
 while(!feof($myfile)) {
-  echo fgets($myfile) . "<br>";
+	$Pass=fgets($myfile);
 }
 fclose($myfile);
+echo $Pass."</br>";
 
+$Clear = "PasswortPasswort";        
 
-
-$Pass = "PasswortPasswort";
-$Clear = "myownkey";        
-
-$crypted = fnEncrypt($Clear, $Pass);
+//use this method for generation new encoded Key for payment
+$crypted = fnEncrypt( "gtKFFx", $Clear);
 echo "Encrypred: ".$crypted."</br>";
 
-$newClear = fnDecrypt($crypted, $Pass);
-echo "Decrypred: ".$newClear."</br>";        
+$newClear = fnDecrypt($crypted, $Clear);
+echo "Decrypred: ".$newClear."</br>";      
+
+$keyToBeUsed = fnDecryptForSingleValue($Pass);
+echo "Decrypred: ".$keyToBeUsed."</br>"; 
 
 function fnEncrypt($sValue, $sSecretKey)
 {
@@ -66,7 +72,7 @@ function fnDecryptForSingleValue($sValue)
     return rtrim(
         mcrypt_decrypt(
             MCRYPT_RIJNDAEL_256, 
-            $Pass, 
+            "PasswortPasswort", 
             base64_decode($sValue), 
             MCRYPT_MODE_ECB,
             mcrypt_create_iv(
@@ -82,9 +88,10 @@ function fnDecryptForSingleValue($sValue)
 
 
 
+
 require_once('database.php');
 $service_provider = "payu_paisa";
-$MERCHANT_KEY = "gtKFFx";
+$MERCHANT_KEY = $keyToBeUsed;
 $SALT = "eCwWELxi";
 $hash = '';
 $txnid = '';
