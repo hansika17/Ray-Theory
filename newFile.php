@@ -226,7 +226,7 @@ echo "</div>";
 	        <input type="text" placeholder="Occupation" name="occupation" id="occupation" value="<?php echo (empty($posted['occupation'])) ? '' : $posted['occupation']; ?>" />
 			<br/>
 		  <br/>
-      <input type="text" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
+      <input type="number" placeholder="Age" name="age" id="age" value="<?php echo (empty($posted['age'])) ? '' : $posted['age']; ?>" />   
 		  <br/>
 		  <span style="color:red" id="correctAge"></span>
 		  <br/>
